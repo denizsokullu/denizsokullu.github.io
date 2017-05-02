@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/reset.css">
+		<script src="../js/p5.js"></script>
+		<link rel="stylesheet" href="../css/grid.css">
+		<link rel="stylesheet" href="fix.css">
+		<script>
+			var songString = "song1.mp3";
+			var state = "CD";
+			var era = 1;
+			var bgString = "cd1bg.gif";
+		</script>
+		<title>CMU to SF</title>
+		<script src="../js/locations.js"></script>
+		<script src="../js/p5.dom.js"></script>
+		<script src="../js/p5.sound.js"></script>
+		<script src="../js/mainSketch.js"></script>
+		<script src="https://use.fontawesome.com/68c66fb9d3.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class = "row timeBar">
+				<div class="col-md-2 title">CMU DESIGN CENSUS</div>
+				<div class="col-md-3 jobSelect">
+					<a class = "current" href="cd1.html">CD</a><a href="id1.html">ID</a>
+				</div>
+				<div class="col-md-5  timeSelect">
+					<a href="cd1.html" class = "current">PRE 2000s</a>
+					<a href="cd2.html" >2000-2010</a>
+					<a  href="cd3.html">2010-2015</a>
+				</div>
+				<div class="col-md-2 links">
+					<a href="../index.html">About</a>
+					<a id="playToggle" href="#">Sound Off</a>
+				</div>
+			</div>
+			<div class = "row">
+				<div class = "col-md-2">
+					<h1>Communication Design <br>Pre 2000s</h1>
+					<p >The Internet is fully up and running, and many companies, including design agencies, are popping up in the Silicon Valley. After graduating from four years of rigorous design challenges at Carnegie Mellon, you got offered a position at ___ in San Francisco, California as a designer. </p>
+					<br>
+					<h2 id = "contentTitle"></h2>
+					<p id= "content"></p>
+				</div>
+				<div class = "col-md-10" id ="sketch-holder">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
