@@ -42,7 +42,7 @@ a{
 	padding-right: 20px;
 }
 .jobSelect a{
-	width: 100px;
+	width: 90px;
 	line-height: 32px;
 	height: 40px;
 	text-align: center;
@@ -50,6 +50,7 @@ a{
 	text-decoration: none;
 	color: white;
 	border: 3px solid white;
+
 }
 .jobSelect a:hover,.timeSelect a:hover{
 	text-decoration: underline;

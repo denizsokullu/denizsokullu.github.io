@@ -34,7 +34,7 @@ var playToggle;
 
 function preload(){
 	song = loadSound("assets/"+songString);
-	masterVolume(0.075);
+	masterVolume(0.2);
 }
 
 function setup (){

@@ -1,36 +1,47 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="../css/reset.css">
+		<script src="../js/p5.js"></script>
 		<link rel="stylesheet" href="../css/grid.css">
 		<link rel="stylesheet" href="fix.css">
-		<script src="../js/p5.js"></script>
 		<script>
+			var songString = "song1.mp3";
 			var state = "ID";
 			var era = 1;
-			var bgString = "1bgID.png";
+			var bgString = "cd1bg.gif";
 		</script>
+		<title>CMU to SF</title>
 		<script src="../js/locations.js"></script>
+		<script src="../js/p5.dom.js"></script>
+		<script src="../js/p5.sound.js"></script>
 		<script src="../js/mainSketch.js"></script>
+		<script src="https://use.fontawesome.com/68c66fb9d3.js"></script>
 	</head>
 	<body>
-	<div class = "row">
-		<div class = "col-md-2">
-			<h1>Industrial Design <br>Pre 2000s</h1>
-			<p id = "content">The Internet is fully up and running, and many companies, including design agencies, are popping up in the Silicon Valley. After graduating from four years of rigorous design challenges at Carnegie Mellon, you got offered a position at ___ in San Francisco, California as a designer. </p>
+		<div class="container">
+			<div class = "row timeBar">
+				<div class="col-md-2 title">CMU DESIGN CENSUS</div>
+				<div class="col-md-3 jobSelect ">
+					<a href="cd1.html">CD</a><a class = "Current" href="id1.html">ID</a>
+				</div>
+				<div class="col-md-5  timeSelect jobSelect1"><a href="id1.html" class = "Current">PRE 2000s</a><a href="id2.html" >2000-2010</a><a  href="id3.html">2010-2015</a>
+				</div>
+				<div class="col-md-2 links">
+					<a href="../index.html">About</a>
+					<a id="playToggle" href="#">Sound Off</a>
+				</div>
+			</div>
+			<div class = "row">
+				<div class = "col-md-2">
+					<h1>Industrial Design <br>Pre 2000s</h1>
+					<p>The Internet is fully up and running, and many companies, including design agencies, are popping up in the Silicon Valley. After graduating from four years of rigorous design challenges at Carnegie Mellon, you got offered a position at ___ in San Francisco, California as a designer. </p>
+					<br>
+					<h2 id = "contentTitle"></h2>
+					<p id= "content"></p>
+				</div>
+				<div class = "col-md-10" id ="sketch-holder">
+				</div>
+			</div>
 		</div>
-		<div class = "col-md-10" id ="sketch-holder">
-		</div>
-	</div>
-	<div class = "row timeBar">	
-		<div class="col-md-2 jobSelect"><a href="cd1.html">CD</a><a href="id1.html">ID</a></div>
-		<div class="col-md-3 col-md-offset-2"><a href="id1.html"></a><div class="bar"></div></div>
-		<div class="col-md-3"><a href="id2.html"></a><div class="bar"></div></div>
-		<div class="col-md-1"><a href="id3.html"></a></div>
-	</div>
-	<div class = "row textTimeBar">
-		<div class="col-md-3 col-md-offset-4">Pre 2000s</div>
-		<div class="col-md-3">2000s</div>
-		<div class="col-md-1">2015</div>
-	</div>
 	</body>
 </html>
