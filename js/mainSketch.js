@@ -20,6 +20,7 @@ var mouseMovedBool = false;
 var multiplier = .83333
 var ratio = 895/1700;
 var limit = 2042;
+var loLimit = 1630;
 
 var cWidth;
 var cHeight;
@@ -54,13 +55,17 @@ function setup (){
 	});
 	song.playMode("sustain");
 	song.play();
-	if (windowWidth <= limit){
+	if (windowWidth <= loLimit){
+		var cWidth = windowWidth*multiplier*0.85;
+	}
+	else if (windowWidth <= limit){
 		var cWidth = windowWidth*multiplier*0.94;	
 	}
 	else{
 		var cWidth = limit*multiplier*0.94;	
 	}
 	var cHeight = (895*cWidth)/1700;
+	console.log(cWidth);
 	var canvas = createCanvas(cWidth,cHeight);
 	canvas.parent('sketch-holder');
 
@@ -70,7 +75,12 @@ function setup (){
 	bg.parent('sketch-holder');
 	bg.style("z-index","-1");
 	bg.style("top","0");
-	bg.style("left","0");
+	if (windowWidth <= loLimit){
+			bg.style("left","40px");
+	}
+	else{
+			bg.style("left","0px");
+	}
 	bg.style("width","100.00%");
 	bg.style("height","auto");
 	bg.style("position","relative");
@@ -137,7 +147,10 @@ function mouseOver(x,y,w,h){
 
 function drawImage(state,era){
 	changed = false;
-	if (windowWidth <= limit){
+	if (windowWidth <= loLimit){
+		var cWidth = windowWidth*multiplier*.85;
+	}
+	else if (windowWidth <= limit){
 		var cWidth = windowWidth*multiplier*0.94;	
 	}
 	else{
@@ -155,8 +168,12 @@ function drawImage(state,era){
 
 		curImage = images[state][era][i][0];
 		aspectRatio = curImage.height/curImage.width;
-		if (windowWidth <= limit){
-			var cWidth = windowWidth*multiplier*0.94;	
+		if (windowWidth <= loLimit){
+			var cWidth = windowWidth*multiplier*.85;
+		}	
+		else if (windowWidth <= limit){
+			var cWidth = windowWidth*multiplier*0.94;
+			console.log(cWidth);
 		}
 		else{
 			var cWidth = limit*multiplier*0.93;	
@@ -166,7 +183,10 @@ function drawImage(state,era){
 		dY = cHeight/895;
 		dX = cWidth/1700;
 
+		console.log(cWidth);
+
 		var bump = 1.12;
+		// var bump = 1.12;
 
 
 
@@ -182,16 +202,19 @@ function drawImage(state,era){
 				p.innerHTML = "Before the turn of the century, many communication designers admired Paul Rand, an art director and graphic designer known for his logo designs."
 			}
 			else if (era == 1 && state == "CD" && i == 2){
-				h.innerHTML = "Book: Apple <Desi></Desi>gn"
+				h.innerHTML = "Book: Apple Design";
 				p.innerHTML = "Your peers were very interested in identity and branding."
 			}
 			else if (era == 1 && state == "CD" && i == 3){
-				p.innerHTML = "The 1980s saw the rise of the home computer, and designers transitioned from working by hand to working on desktops such as the power mac 7100. Computers changed the design industry, making work faster and easier. You probably used some programs on the computer for design work, but it was not your primary tool. A lot of your peers worked more with their cameras and with paper."
+				h.innerHTML = "Program: Not Specified";
+				p.innerHTML = "The 1980s saw the rise of the personal computers, and designers transitioned from working by hand to working on desktops such as the power mac 7100. You probably used some programs on the computer for design work, but it was not your primary tool."
 			}
 			else if (era == 1 && state == "CD" && i == 4){
-				p.innerHTML = "The 1980s saw the rise of the home computer, and designers transitioned from working by hand to working on desktops such as the power mac 7100. Computers changed the design industry, making work faster and easier. You probably used some programs on the computer for design work, but it was not your primary tool. A lot of your peers worked more with their cameras and with paper."
+				h.innerHTML = "Tools: DSLR Camera";
+				p.innerHTML = " A lot of your peers worked more with their cameras and with paper."
 			}
 			else if (era == 1 && state == "CD" && i == 5){
+				h.innerHTML = "Sketching Tool: Moleskine Sketchbook";
 				p.innerHTML = "Though people are using computers more for work, you still can’t live without your pens and paper. You still rely a lot on your sketchbook."
 			}
 
@@ -200,12 +223,15 @@ function drawImage(state,era){
 				p.innerHTML = "In the 2000s, many communication designers admired Michael Beirut, a famous graphic designer known for his work with Pentagram."
 			}
 			else if (era == 2 && state == "CD" && i == 2){
-				p.innerHTML = "After the Dot Com bubble burst, the iMac G3 saved Apple from financial ruin and was known for its innovative design. You probably worked on one of these in the early 2000s and will forever remember its colorful casing. Also, the first version of Adobe Creative Suite was released in 2003 and has become one of the most popular graphics software."
+				h.innerHTML = "Program: Adobe CS";
+				p.innerHTML = "After the Dot Com bubble burst, the iMac G3 saved Apple from financial ruin and was known for its innovative design. You probably worked on one of these in the early 2000s and will forever remember its colorful casing. Also, the first version of Adobe Creative Suite was released in 2003 as one of the most popular graphics software."
 			}
 			else if (era == 2 && state == "CD" && i == 3){
+				h.innerHTML = "Tools: Tablet";
 				p.innerHTML = " In this era, communication designers started working with tablets, but they still enjoyed drawing and sketching by hand."
 			}
 			else if (era == 2 && state == "CD" && i == 4){
+				h.innerHTML = "Book: Print and Advertising";
 				p.innerHTML = " Your peers were very interested in print and advertising."
 			}
 
@@ -224,7 +250,85 @@ function drawImage(state,era){
 			else if (era == 3 && state == "CD" && i == 4){
 				h.innerHTML = "Whiteboard & Post-its"
 				p.innerHTML = "Though a lot of work is digital now, communication designers still find it valuable to work with physical things like post its and whiteboards."
-			}			
+			}
+			// ID ERA 1
+			if (era == 1 && state == "ID" && i == 1){
+				h.innerHTML = "Poster: Paul Rand";
+				p.innerHTML = "Before the turn of the century, many communication designers admired Paul Rand, an art director and graphic designer known for his logo designs."
+			}
+			else if (era == 1 && state == "ID" && i == 2){
+				h.innerHTML = "Book: Apple <Desi></Desi>gn"
+				p.innerHTML = "Your peers were very interested in identity and branding."
+			}
+			else if (era == 1 && state == "ID" && i == 3){
+				p.innerHTML = "The 1980s saw the rise of the home computer, and designers transitioned from working by hand to working on desktops such as the power mac 7100. Computers changed the design industry, making work faster and easier. You probably used some programs on the computer for design work, but it was not your primary tool. A lot of your peers worked more with their cameras and with paper."
+			}
+			else if (era == 1 && state == "ID" && i == 4){
+				p.innerHTML = "The 1980s saw the rise of the home computer, and designers transitioned from working by hand to working on desktops such as the power mac 7100. Computers changed the design industry, making work faster and easier. You probably used some programs on the computer for design work, but it was not your primary tool. A lot of your peers worked more with their cameras and with paper."
+			}	
+			// ID ERA 2
+
+
+
+
+
+			// ID ERA 3
+			else if (era == 3 && state == "ID" && i == 1){
+				h.innerHTML = "Poster: Stefan Sagmeister"
+				p.innerHTML = "Since 2010, many communication designers have admired designers such as Stefan Sagmeister, who is known for his controversial and unorthodox graphic design work."
+			}
+			else if (era == 3 && state == "ID" && i == 2){
+				h.innerHTML = "Book: Lean UX"
+				p.innerHTML = "Your peers are very interested in user experience design."
+			}
+			else if (era == 3 && state == "ID" && i == 3){
+				h.innerHTML = "Computer: Apple iMac"
+				p.innerHTML = "One of the most common desktops at this time is the current iMac, a dependable and well designed computer that has almost become industry standard. Communication designers often work with programs like Sketch and Adobe Creative Cloud."
+			}
+			else if (era == 3 && state == "ID" && i == 4){
+				h.innerHTML = "Whiteboard & Post-its"
+				p.innerHTML = "Though a lot of work is digital now, communication designers still find it valuable to work with physical things like post its and whiteboards."
+			}	
+			else if (era == 3 && state == "ID" && i == 5){
+				h.innerHTML = "Whiteboard & Post-its"
+				p.innerHTML = "Though a lot of work is digital now, communication designers still find it valuable to work with physical things like post its and whiteboards."
+			}	
+			// IXD ERA 2
+			else if (era == 2 && state == "IXD" && i == 1){
+				h.innerHTML = "Poster: Michael Beirut"
+				p.innerHTML = "In the 2000s, many communication designers admired Michael Beirut, a famous graphic designer known for his work with Pentagram."
+			}
+			else if (era == 2 && state == "IXD" && i == 2){
+				p.innerHTML = "After the Dot Com bubble burst, the iMac G3 saved Apple from financial ruin and was known for its innovative design. You probably worked on one of these in the early 2000s and will forever remember its colorful casing. Also, the first version of Adobe Creative Suite was released in 2003 and has become one of the most popular graphics software."
+			}
+			else if (era == 2 && state == "IXD" && i == 3){
+				p.innerHTML = " In this era, communication designers started working with tablets, but they still enjoyed drawing and sketching by hand."
+			}
+			else if (era == 2 && state == "IXD" && i == 4){
+				p.innerHTML = " Your peers were very interested in print and advertising."
+			}
+
+			// IXD ERA 3
+			else if (era == 3 && state == "IXD" && i == 1){
+				h.innerHTML = "Poster: Stefan Sagmeister"
+				p.innerHTML = "Since 2010, many communication designers have admired designers such as Stefan Sagmeister, who is known for his controversial and unorthodox graphic design work."
+			}
+			else if (era == 3 && state == "IXD" && i == 2){
+				h.innerHTML = "Book: Lean UX"
+				p.innerHTML = "Your peers are very interested in user experience design."
+			}
+			else if (era == 3 && state == "IXD" && i == 3){
+				h.innerHTML = "Computer: Apple iMac"
+				p.innerHTML = "One of the most common desktops at this time is the current iMac, a dependable and well designed computer that has almost become industry standard. Communication designers often work with programs like Sketch and Adobe Creative Cloud."
+			}
+			else if (era == 3 && state == "IXD" && i == 4){
+				h.innerHTML = "Whiteboard & Post-its"
+				p.innerHTML = "Though a lot of work is digital now, communication designers still find it valuable to work with physical things like post its and whiteboards."
+			}	
+			else if (era == 3 && state == "IXD" && i == 5){
+				h.innerHTML = "Whiteboard & Post-its"
+				p.innerHTML = "Though a lot of work is digital now, communication designers still find it valuable to work with physical things like post its and whiteboards."
+			}	
 
 
 

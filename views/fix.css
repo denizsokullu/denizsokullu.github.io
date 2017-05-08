@@ -57,6 +57,7 @@ a{
 	background-color: black;
 	color: white;
 }
+
 .current{
 	background-color: white;
 	color: black!important;
@@ -133,4 +134,60 @@ p{
 	max-width: 1920px;
 	width: 94%;
 }
+
+
+@media only screen and (max-width:1630px){
+	.container{
+		width: 95%!important;
+	}
+	.jobSelect{
+		padding-left: 40px!important;
+
+	}
+	.jobSelect a{
+		width: 60px;
+		line-height: 35px;
+		height: 40px;
+		text-align: center;
+		font-size: 23px;
+		text-decoration: none;
+		color: white;
+		border: 3px solid white;
+
+	}
+	.timeSelect a{
+		width: 140px;
+		line-height: 35px;
+		height: 40px;
+		text-align: center;
+		text-decoration: none;
+		color: white;
+		font-size: 23px;
+		border: 3px solid white;
+	}
+	.timeSelect{
+		width: 33.3333%;
+	}
+	.links a{
+		color: white;
+		text-decoration: none;
+		font-size: 23px;
+		margin-left: 15px;
+		padding-top: 5px;
+		text-align: right;
+	}
+	#sketch-holder{
+		width: 74%;
+		position: relative;
+		padding-left: 40px!important;
+	}
+	.row .col-md-2{
+		width: 21%;
+	}
+	.links{
+		width: 19%!important;
+	}
+
+}
+
 
