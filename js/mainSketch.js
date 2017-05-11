@@ -10,6 +10,7 @@ var images = {
 	CDImageCount3: 4,
 	IDImageCount:4,
 	IDImageCount1:4,
+	IDImageCount2:4,
 	IDImageCount3: 4,
 	IXImageCount: 4,
 	IXImageCount2: 4,
@@ -43,12 +44,12 @@ function setup (){
 	playToggle.mousePressed(function(){
 	  playToggle = document.getElementById('playToggle');
 	  if (play){
-	  	playToggle.innerHTML = "Sound On"
+	  	playToggle.innerHTML = "SOUND ON"
 	  	masterVolume(0.0);
 	  	play = !play;
 	  }
 	  else if (!play){
-	  	playToggle.innerHTML = "Sound Off"
+	  	playToggle.innerHTML = "SOUND OFF"
 	  	masterVolume(0.075);
 	  	play = !play;
 	  }
@@ -65,7 +66,6 @@ function setup (){
 		var cWidth = limit*multiplier*0.94;	
 	}
 	var cHeight = (895*cWidth)/1700;
-	console.log(cWidth);
 	var canvas = createCanvas(cWidth,cHeight);
 	canvas.parent('sketch-holder');
 
@@ -113,6 +113,16 @@ function setup (){
 			 			 loadImage("assets/ID"+str(i)+str(j)+"hover.png")]
 		}
 	}
+	for (var i = 2; i < 3; i++){
+		for (var j = 1; j < images.IDImageCount2+1; j++){
+			images.ID[i][j] = 
+						[loadImage("assets/ID"+str(i)+str(j)+".png"),
+			 			 loadImage("assets/ID"+str(i)+str(j)+"hover.png")]
+			console.log(images.ID[i][j]);
+			console.log(i,j);
+
+		}
+	}
 	for (var i = 3; i < 4; i++){
 		for (var j = 1; j < images.IDImageCount3+1; j++){
 			images.ID[i][j] = 
@@ -121,14 +131,19 @@ function setup (){
 		}
 
 	}
-	for (var i = 3; i < 4; i++){
-		for (var j = 1; j < images.IXImageCount+1; j++){
-			console.log(images.IX[i]);
+	for (var i = 2; i < 3; i++){
+		for (var j = 1; j < images.IXImageCount2+1; j++){
 			images.IX[i][j] =
 						 [loadImage("assets/IX"+str(i)+str(j)+".png"),
 			 			 loadImage("assets/IX"+str(i)+str(j)+"hover.png")]
 		}
-		console.log(images.IX[3]);
+	}
+	for (var i = 3; i < 4; i++){
+		for (var j = 1; j < images.IXImageCount+1; j++){
+			images.IX[i][j] =
+						 [loadImage("assets/IX"+str(i)+str(j)+".png"),
+			 			 loadImage("assets/IX"+str(i)+str(j)+"hover.png")]
+		}
 	}
 	//draw the initial images
 	drawImage(state,era);
@@ -160,6 +175,7 @@ function drawImage(state,era){
 	
 	var p = document.getElementById("content");
 	var h = document.getElementById("contentTitle");
+	console.log(state,era);
 	for(var i = 1; i < images[state+"ImageCount"+str(era)]+1;i++){
 		imageName = state+str(era)+str(i);
 
@@ -173,7 +189,6 @@ function drawImage(state,era){
 		}	
 		else if (windowWidth <= limit){
 			var cWidth = windowWidth*multiplier*0.94;
-			console.log(cWidth);
 		}
 		else{
 			var cWidth = limit*multiplier*0.93;	
@@ -274,11 +289,11 @@ function drawImage(state,era){
 			// ID ERA 2
 			if (era == 2 && state == "ID" && i == 1){
 				h.innerHTML = "Favorite Designer";
-				p.innerHTML = "Before the turn of the century, many communication designers admired Paul Rand, an art director and graphic designer known for his logo designs."
+				p.innerHTML = "In the 2000s, many industrial designers admired Dieter Rams, a German industrial designer known for his work with Braun consumer products and the Functionalist school of thought."
 			}
 			else if (era == 2 && state == "ID" && i == 2){
 				h.innerHTML = "Interests"
-				p.innerHTML = "Your peers were very interested in identity and branding."
+				p.innerHTML = " Your peers were very interested in industrial design and furniture."
 			}
 			else if (era == 2 && state == "ID" && i == 3){
 				h.innerHTML = "Computer/Programs"
@@ -286,12 +301,8 @@ function drawImage(state,era){
 			}
 			else if (era == 2 && state == "ID" && i == 4){
 				h.innerHTML = "Tools"
-				p.innerHTML = " Though people are using computers more for work, you still can’t live without your pens and paper. You still rely a lot on your sketchbook."
+				p.innerHTML = "In this era, industrial designers worked a lot with solidworks and sketched on whiteboards."
 			}	
-
-
-
-
 
 			// ID ERA 3
 			else if (era == 3 && state == "ID" && i == 1){
@@ -313,17 +324,20 @@ function drawImage(state,era){
 
 			// IX ERA 2
 			else if (era == 2 && state == "IX" && i == 1){
-				h.innerHTML = "Poster: Michael Beirut"
-				p.innerHTML = "In the 2000s, many communication designers admired Michael Beirut, a famous graphic designer known for his work with Pentagram."
+				h.innerHTML = "Favorite Designer"
+				p.innerHTML = "In the 2000s, many interaction designers admired John Maeda, who was known for his early work of combining programing and art and who is also successful in business and technology."
 			}
 			else if (era == 2 && state == "IX" && i == 2){
-				p.innerHTML = "After the Dot Com bubble burst, the iMac G3 saved Apple from financial ruin and was known for its innovative design. You probably worked on one of these in the early 2000s and will forever remember its colorful casing. Also, the first version of Adobe Creative Suite was released in 2003 and has become one of the most popular graphics software."
+				h.innerHTML = "Computer/Programs"
+				p.innerHTML = "After the Dot Com bubble burst, the iMac G3 saved Apple from financial ruin and was known for its innovative design. You probably worked on one of these in the early 2000s and will forever remember its colorful casing."
 			}
 			else if (era == 2 && state == "IX" && i == 3){
-				p.innerHTML = " In this era, communication designers started working with tablets, but they still enjoyed drawing and sketching by hand."
+				h.innerHTML = "Tools"
+				p.innerHTML = "In this era, interaction designers worked a lot with creative suite and also by hand with the whiteboard and post its."
 			}
 			else if (era == 2 && state == "IX" && i == 4){
-				p.innerHTML = " Your peers were very interested in print and advertising."
+				h.innerHTML = "Interests"
+				p.innerHTML = "Your peers were very interested in user experience design and products."
 			}
 
 			// IX ERA 3
@@ -344,11 +358,8 @@ function drawImage(state,era){
 				p.innerHTML = "Interaction designers love their post its and whiteboards. Also, your peers are very interested in user experience design of course as well as service design."
 			}	
 
-
-
 			changed = true;
 			image(curImage,x*dX,y*dY,curImage.width*multiplier*dX*bump,curImage.width*multiplier*aspectRatio*dY*bump);	
-			// }
 		}
 
 		else{

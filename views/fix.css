@@ -24,6 +24,13 @@ a{
 	display: inline-block;
 
 }
+.title a{
+	color: #00FF00;
+	text-decoration: none;
+}
+.title a:hover{
+	cursor: pointer;
+}
 #contentTitle{
 	color:#00FF00;
 	margin-top: 20px;
@@ -70,6 +77,7 @@ a{
 .title{
 	font-size: 32px;
 	padding-top: 2px;
+	color: #00FF00;
 }
 .timeSelect a{
 	width: 180px;

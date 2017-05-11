@@ -1,0 +1,163 @@
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/grid.css">
+		<script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+		<style>
+			@font-face {
+			    font-family: 'vt323';
+			    src: url('views/VT323-Regular.ttf') format('truetype');
+			}
+			.container{
+				width: 92%;
+			}
+			.objects{
+				display: none;
+			}
+			body{
+				background: black;
+				color: white;
+				font-family: "vt323";
+			}
+			.sideTitleDiv{
+				text-align: right;
+			}
+			.top-row{
+				margin-top: 30px;
+				font-size: 24px;
+				margin-bottom: 120px;
+			}
+			.title{
+				color: #00FF00!important;
+			}
+			.g{
+				text-decoration: underline;
+			}
+			.links{
+				text-align: right;
+			}
+			.links a{
+				text-decoration: none;
+				color: white;
+				margin-left: 30px;
+			}
+			.links a:hover{
+				text-decoration: underline;
+			}
+			.links a:visited{
+				text-align: right;
+				text-decoration: none;
+				color: white;
+			}
+			.title a{
+				cursor: pointer;
+				text-decoration: none;
+				color: #00FF00!important;
+			}
+			.goals,.objects{
+				font-size: 20px;
+				height: 320px;
+				width: 44%;
+			}
+			p{
+				margin-bottom: 18px;
+			}
+			.sideTitle{
+				font-size: 36px;
+				margin-bottom: 15px;
+			}
+			.sideTitle:hover{
+				text-decoration: underline;
+				cursor: pointer;
+			}
+			.button-row{
+				margin-top: 120px;
+				text-align: right;
+				padding-right: 120px;
+			}
+			.button-row a{
+				display: inline-block;
+				text-decoration: none;
+				text-align: center;
+				color: white;
+				height: 40px;
+				font-size: 17px;
+				line-height: 33px;
+				width: 150px;
+				border: 2px solid #00FF00;
+			}
+			.button-row a:hover{
+				color: black;
+				border: 2px solid #00FF00;
+				background: #00FF00;
+				transition: all 0.2s ease-in;
+				cursor: pointer;
+			}
+			.green{
+				color: #00FF00;
+			}
+			.bigNumber{
+				font-size: 36px;
+			}
+		</style>
+		<script>
+		 $(document).ready(function(e) {  
+			$(".g").hover(function(){
+				$(".o").css("text-decoration","none");
+				$(".g").css("text-decoration","underline");
+				$(".goals").css("display","block");
+				$(".objects").css("display","none");
+			},function(){});
+			$(".o").hover(function(){
+				$(".o").css("text-decoration","underline");
+				$(".g").css("text-decoration","none");
+				$(".goals").css("display","none");
+				$(".objects").css("display","block");
+			},function(){});
+		});
+
+
+
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row top-row">
+				<div class="col-md-3 title">
+					<a href="screens.html">CMU DESIGN CENSUS</a>
+				</div>
+				<div class="col-md-5 col-md-offset-4 links">
+					<a href="about.html">ABOUT</a>
+					<a href="key.html">KEY</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 sideTitleDiv">
+					<div class = "sideTitle g">GOALS</div>
+					<div class = "sideTitle o">OBJECTS</div>
+				</div>
+				<div class="col-md-5 col-md-offset-1 goals">
+					<p>The goal of this website is to help people see the change in the design industry in the Bay Area as technology rose in prominence. Our team of five communication design students sent a survey out to Carnegie Mellon Design School alumni as a way for us to see what their interests, jobs, and work life was like right after graduation. We got 73 responses from designers who graduated from 1966 to 2015 who had different concentrations in either communication, industrial, or interaction design.
+					</p>
+					<p>We analyzed the responses to find trends in the design workplace for different eras, and we saw significant changes as technology grew. We created scenes that represent the average designer from that era who responded to our survey. Each survey question corresponds to an object in our scene, which was determined by the most popular answers from our respondants.	
+					</p>
+				</div>
+				<div class="col-md-5 col-md-offset-1 objects">
+					<p><span class = "bigNumber">73</span> people responded to our survey.</p>
+					<p><span class = "bigNumber">28</span> of those people (38%) studied <span class ="green">Industrial Design</span> at CMU.</p>
+					<p><span class = "bigNumber">4</span> of those people (14%) <span class ="green">graduated before 2000.</span></p>
+					<p><span class = "bigNumber">3</span> of those people (75%) were <span class ="green">most inspired by the Eames</span>.</p>
+					<p>We used this process to find the most popular response to each question. People’s inspirations are represented by a book, and for the scene of an industrial designer who graduated before 2000, we put an Eames chair on the cover.</p>
+				</div>
+			</div>
+			<div class="row button-row">
+				<a href="screens.html">explore the scenes</a>
+			</div>
+		</div>
+	</body>
+</html>
