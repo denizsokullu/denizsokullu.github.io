@@ -1,4 +1,5 @@
 
+
 //CMU Design Census p5.js file
 var images = [[],[],[],[]];
 var mouseMovedBool = false;
@@ -117,7 +118,7 @@ function drawImage(){
 			x = locations[imageName+"hover"][0];
 			y = locations[imageName+"hover"][1];
 
-			if (i == 1){
+			if (i == 3){
 				h.innerHTML = "Favorite Designer";
 				p.innerHTML = "What designer most inspired you as a student?"
 			}
@@ -125,7 +126,7 @@ function drawImage(){
 				h.innerHTML = "Interest";
 				p.innerHTML = "What kind of design were you interested in at the time of graduation?"
 			}
-			else if (i == 3){
+			else if (i == 1){
 				h.innerHTML = "Computer/Programs";
 				p.innerHTML = "What type of computer/digital tool did you use at the time of graduation?"
 			}
