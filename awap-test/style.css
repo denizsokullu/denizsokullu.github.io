@@ -1,0 +1,39 @@
+#logContainer{
+	background-color:#272822;
+	width:calc(50% + 5px);
+	height:32vh;
+	overflow-y:scroll;
+	overflow-x:wrap;
+	color:white;
+	font-family:"Monaco";
+	padding-left:10px;
+}
+
+#editor {
+        margin: 0;
+        position: relative;
+        top: 0;
+        left: 0;
+        width:50%;
+        height:60vh;
+        
+}
+#buttonRow{
+	background-color: #272822;
+	width:calc(50% - 20px);
+	padding:5px 10px;
+	border-top:10px solid #2F3129;
+}
+button{
+	background-color:white;
+	color:#272822;
+	border:3px solid #272822;
+	border-right:none;
+}
+button:focus, input[type="button"]:focus{
+	outline:none;
+}
+body {
+    overflow: hidden;
+    font-size:12px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Editor</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="brython.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="brython.js"></script>
+  <script type ="text/python" id = "code"></script>
+  <script type="text/javascript">
+     function load_js(text)
+     {
+        var script= document.getElementById("code");
+        script.text= text;
+        brython();
+     }
+     function clearLog(){
+      $("#log").text(">>> Python 3");
+     }
+  </script>
+</head>
+<body onload="brython()"">
+<pre id ="editor">
+def test():
+  print("something")
+test()
+</pre>
+<div id ="buttonRow">
+  <button onclick="editor.setFontSize(editor.getFontSize()+1);">Increase Font Size</button><button onclick="editor.setFontSize(editor.getFontSize()-1);">Decrease Font Size</button><button onclick="load_js(editor.getSession().getValue());">Run</button><button onclick="clearLog()">Clear Console</button>
+</div>
+
+<div id="logContainer">
+  <p id="log">
+  >>> Python 3
+  </p>
+</div>
+<script>
+    window.console = {
+      log: function(str){
+        var node = document.createElement("div");
+        node.appendChild(document.createTextNode(">>> "+str));
+        document.getElementById("log").appendChild(node);
+      }
+    }
+</script>
+<script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/python");
+    editor.setShowPrintMargin(false);
+</script>
+
+</body>
+</html>
