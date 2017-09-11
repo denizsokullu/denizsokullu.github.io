@@ -1,4 +1,4 @@
-#
+ #
 # Secret Labs' Regular Expression Engine
 #
 # re-compatible interface for the sre matching engine
@@ -14,7 +14,7 @@
 # other compatibility work.
 #
 
-r"""Support for regular expressions (RE).
+"""Support for regular expressions (RE).
 
 This module provides regular expression matching operations similar to
 those found in Perl.  It supports both 8-bit and Unicode strings; both
